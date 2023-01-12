@@ -1,36 +1,55 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-    border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 1px solid black;
+  color: white;
+  background-color: rgb(8, 75, 47);
+}
+.title-header {
+  display: flex;
+  color: yellow;
+  padding: 10px;
+}
+.title-header > h1 {
+  padding: 10px;
 }
 
-.nav-items > ul{
-    list-style-type: none;
-    display: flex;
-
+.nav-items > ul {
+  list-style-type: none;
+  display: flex;
+  margin-top: 30px;
+  margin-right: 20px;
 }
 
 .nav-items > ul > li {
-    padding: 10px;
+  padding: 10px;
 }
 
 .logo {
-    width: 100px;
+  width: 100px;
 }
 
 .card {
-    width: 200px;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
+  width: 200px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
 }
 
-.card > img{
-    width:100%;
+.card > img {
+  width: 100%;
 }
 
 .restaurant-list {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-container {
+  padding: 10px;
+}
+
+.search-input {
+  margin-right: 10px;
 }

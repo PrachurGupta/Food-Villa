@@ -1,10 +1,11 @@
 const Title = () => (
-    <a href="/">
+    <a href="/" className="title-header">
       <img
         className="logo"
         alt="logo"
-        src="https://static.vecteezy.com/system/resources/previews/011/405/724/original/call-food-logo-design-food-delivery-service-logo-concept-free-vector.jpg"
+        src="https://i.pinimg.com/736x/61/d5/e5/61d5e572f0806ab8c335bf6d955e9283.jpg"
       />
+      <h1>FooD Villa</h1>
     </a>
   );
   
