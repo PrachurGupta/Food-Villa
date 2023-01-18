@@ -53,3 +53,15 @@
 .search-input {
   margin-right: 10px;
 }
+
+.shimmer-card{
+  width:200px;
+  height: 250px;
+  background-color: lightgray;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+a {
+  color: White;
+}
