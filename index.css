@@ -15,6 +15,10 @@
   padding: 10px;
 }
 
+.nav-items > ul > li > a {
+  color: white;
+  text-decoration: none;
+}
 .nav-items > ul {
   list-style-type: none;
   display: flex;
@@ -46,6 +50,11 @@
   flex-wrap: wrap;
 }
 
+.restaurant-list > a {
+  text-decoration: none;
+  color: black;
+}
+
 .search-container {
   padding: 10px;
 }
@@ -54,14 +63,18 @@
   margin-right: 10px;
 }
 
-.shimmer-card{
-  width:200px;
+.shimmer-card {
+  width: 200px;
   height: 250px;
   background-color: lightgray;
   border-radius: 5px;
   margin: 20px;
 }
 
-a {
-  color: White;
+.menu {
+  display: flex;
+}
+
+.menu-list {
+  margin: 20px;
 }
