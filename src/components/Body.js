@@ -2,7 +2,7 @@ import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurants) {
   // const filterData =
@@ -17,7 +17,7 @@ const Body = () => {
   //*1
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState(""); //*2
-
+  console.log(useState());
   useEffect(() => {
     getRestaurants();
   }, []);

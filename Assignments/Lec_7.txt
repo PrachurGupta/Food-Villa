@@ -1,0 +1,12 @@
+Que2) What would happen if we do console.log(useState());
+Ans2) useSate() returns an array with exactly two values: The current state, A function that updates the state.
+console.log(useState()) --> initial => [undefined, f]
+                            after render => [variable, setVariable]
+
+Que3) How will useEffect behave if we don't add a dependency array?
+Ans3)useEffect will be rendered everytime and the function will be called everytime.
+
+Que4) What is SPA?
+Ans4) Single Page Application is a web implementation that loads only a single web document, and then updates the body content of that single document via JS APIs such as Fetch when different content is to be shown.
+
+Que5)What is difference between 

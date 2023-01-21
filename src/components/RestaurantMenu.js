@@ -27,8 +27,9 @@ const RestaurantMenu = () => {
   ) : (
     <div className="menu">
       <div>
-        <h1>Restaurant Id: {resId}</h1>
-        <h2>{restaurant.name}</h2>
+        {/* <h1>Restaurant Id: {resId}</h1> */}
+        <h1>Speacial Offer: {restaurant.aggregatedDiscountInfo?.header}</h1>
+        <h1>{restaurant.name}</h1>
         <img src={IMG_CDN_URL + restaurant.cloudinaryImageId} />
         <h3>{restaurant.area}</h3>
         <h3>{restaurant.city}</h3>
