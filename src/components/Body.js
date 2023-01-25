@@ -17,7 +17,7 @@ const Body = () => {
   //*1
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState(""); //*2
-  console.log(useState());
+  // console.log(useState());
   useEffect(() => {
     getRestaurants();
   }, []);
