@@ -2,6 +2,7 @@ import { useState } from "react";
 import Logo from "../asset/img/Logo.jpg";
 import { Link } from "react-router-dom";
 import useOnline from "../Utils/useOnline";
+import useAuth from "../Utils/useAuth.js";
 
 const Title = () => (
   <a href="/" className="title-header">
@@ -11,7 +12,9 @@ const Title = () => (
 );
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const isLoggedIn = useAuth();
   const isOnline = useOnline();
   return (
     <div className="header">
@@ -34,11 +37,12 @@ const Header = () => {
         </ul>
       </div>
       <h1>{isOnline ? "✅" : "🔴"}</h1>
-      {isLoggedIn ? (
+      <button id="demo">Log In</button>
+      {/* {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>LogOut</button>
       ) : (
         <button onClick={() => setIsLoggedIn(true)}>Login</button>
-      )}
+      )} */}
     </div>
   );
 };

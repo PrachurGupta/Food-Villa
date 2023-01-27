@@ -5,7 +5,7 @@ const useOnline = () => {
 
   useEffect(() => {
 
-    console.log("*******************");
+    // console.log("*******************");
 
     const handleOnline = () => {
       setIsOnline(true);
