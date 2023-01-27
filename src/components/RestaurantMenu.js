@@ -1,27 +1,13 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../constants";
 import Shimmer from "./Shimmer.js";
+import useRestaurantData from "../Utils/useRestaurantData";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  // const { resId } = params;
-  const [restaurant, setRestaurant] = useState(null);
-
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
-
-  async function getRestaurantInfo() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/v4/full?lat=30.3164945&lng=78.03219179999999&menuId=" +
-        resId
-    );
-    const json = await data.json();
-    // console.log(resId);
-    setRestaurant(json.data);
-  }
-
+  
+  const restaurant = useRestaurantData(resId)
+  
   return !restaurant ? (
     <Shimmer />
   ) : (
@@ -42,16 +28,17 @@ const RestaurantMenu = () => {
           return <li key={item.id}>{item.name}</li>;
         })}
       </div>
-      {/* <div>
-        <h1>Menu</h1>
-        {restaurant?.menu?.items !== undefined
-          ? Object.values(restaurant?.menu?.items).map(function (item) {
-              return <li key={item.id}>{item.name}</li>;
-            })
-          : []}
-      </div> */}
     </div>
   );
 };
 
 export default RestaurantMenu;
+
+{/* <div>
+  <h1>Menu</h1>
+  {restaurant?.menu?.items !== undefined
+    ? Object.values(restaurant?.menu?.items).map(function (item) {
+        return <li key={item.id}>{item.name}</li>;
+      })
+    : []}
+</div>  */}

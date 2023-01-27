@@ -1,35 +1,33 @@
-import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterData(searchText, restaurants) {
-  // const filterData =
-  return restaurants.filter((restaurant) =>
-    restaurant?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-  );
-  // return filterData;
-}
+import { filterData } from "../Utils/helper";
+import { FETCH_RESTAURANT_URL } from "../constants";
+import useOnline from "../Utils/useOnline";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
-  //*1
+
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState(""); //*2
-  // console.log(useState());
+  const [searchText, setSearchText] = useState("");
+
   useEffect(() => {
     getRestaurants();
   }, []);
 
   async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(FETCH_RESTAURANT_URL);
     const json = await data.json();
 
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  }
+
+  const isOnline = useOnline();
+
+  if (!isOnline) {
+    return <h1>🔴Offline, pls check your internet connection!!</h1>;
   }
 
   if (!allRestaurants) return null;
@@ -87,14 +85,3 @@ const Body = () => {
 };
 
 export default Body;
-
-//*1
-// const searchText = "KFC"; ---> In JavaScript making local variable
-// ⇓⇓⇓⇓
-
-//*2
-// --> In react making local variable, useState returns = [variable name, function to update the variable]
-//Its destructuring only like if
-//const searchVar = useState();
-// const [searchText, setSearchText] = searchVar;
-//Line 8 is same as in Line 9 & 10.
