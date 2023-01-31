@@ -9,7 +9,8 @@ const useAuth = () => {
         ? (setIsLoggedIn(false),
           (document.getElementById("demo").innerHTML = "Log In"))
         : (setIsLoggedIn(true),
-          (document.getElementById("demo").innerHTML = "Log Out"));
+          (document.getElementById("demo").innerHTML = "Log Out"),
+          [isLoggedIn]);
     };
     window.addEventListener("click", auth);
 
