@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header.js";
 import Body from "./components/Body.js";
@@ -10,18 +10,25 @@ import Profile from "./components/Profile.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
 import Shimmer from "./components/Shimmer.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import UserContext from "./Utils/UserContext.js";
 // import Instamart from "./components/Instamart.js"
 const Instamart = lazy(() => import("./components/Instamart")); //import is a promise
 const About = lazy(() => import("./components/About"));
 //Upon Demand Loading --> upon render --> suspend loading
 
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Prachur",
+    email: "asd@gmail.com",
+  });
+
+
   return (
-    <>
+    <UserContext.Provider value={{ user: user,setUser: setUser}}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </UserContext.Provider>
   );
 };
 

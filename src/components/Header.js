@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Logo from "../asset/img/Logo.jpg";
 import { Link } from "react-router-dom";
 import useOnline from "../Utils/useOnline";
 import useAuth from "../Utils/useAuth.js";
+import UserContext from "../Utils/UserContext";
 
 const Title = () => (
   <a href="/" className="title-header">
@@ -16,6 +17,9 @@ const Header = () => {
 
   const isLoggedIn = useAuth();
   const isOnline = useOnline();
+
+  const { user } = useContext(UserContext);
+
   return (
     <div className="flex justify-between bg-pink-50 shadow-lg">
       <Title />
@@ -37,6 +41,7 @@ const Header = () => {
         </ul>
       </div>
       <h1 className="m-10 ">{isOnline ? "" : "🔴"}</h1>
+      <span className="my-10 font-bold text-pink-700 text-xl"> {user.name}</span>
       <button
         className="px-4 py-1 m-2 mr-5 bg-pink-400 hover:bg-pink-500 text-white rounded-full border hover:border-pink-600"
         id="demo"
