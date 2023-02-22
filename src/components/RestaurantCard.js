@@ -16,7 +16,7 @@ const RestaurantCard = ({
       <h2 className="font-bold text-xl">{name}</h2>
       <h3>{cuisines.join(", ")}</h3>
       <h4>{lastMileTravelString}</h4>
-      <h5 className="font-bold text-sm">{user.name} {user.email}</h5>
+      {/* <h5 className="font-bold text-sm">{user.name} {user.email}</h5> */}
     </div>
   );
 };

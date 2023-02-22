@@ -61,14 +61,14 @@ const Body = () => {
         >
           Search
         </button>
-        <input
+        {/* <input
           value={user.name}
           onChange={(e) => setUser({ ...user, name: e.target.value })}
-        ></input>
-        <input
+        ></input> */}
+        {/* <input
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
-        ></input>
+        ></input> */}
       </div>
       <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => {

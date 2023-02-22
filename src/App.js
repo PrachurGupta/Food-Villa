@@ -8,8 +8,11 @@ import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
 import Profile from "./components/Profile.js";
 import RestaurantMenu from "./components/RestaurantMenu.js";
+import Cart from "./components/Cart.js";
 import Shimmer from "./components/Shimmer.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./Utils/store";
 import UserContext from "./Utils/UserContext.js";
 // import Instamart from "./components/Instamart.js"
 const Instamart = lazy(() => import("./components/Instamart")); //import is a promise
@@ -19,16 +22,17 @@ const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
   const [user, setUser] = useState({
     name: "Prachur",
-    email: "asd@gmail.com",
+    email: "prachur12@gmail.com",
   });
 
-
   return (
-    <UserContext.Provider value={{ user: user,setUser: setUser}}>
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -71,6 +75,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
